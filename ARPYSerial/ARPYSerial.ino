@@ -23,8 +23,7 @@ void loop(){
     }
   }
   //Serial.println(Bstate);
-  PyComs(Serial.available());
-  delay(100);
+  PyComs(Bstate);
 }
 
 

@@ -3,6 +3,7 @@ from Py2ArdComs import *
 import time
 
 a = 0
+SerSend = "wjhdsfg"   
 
 def Communications():
 	coms.run()
@@ -16,9 +17,9 @@ if __name__ == '__main__':
 	while a<100:
 		time.sleep(0.1)
 		a = a+1
-		SerRecieve = coms.FromArduino()
+		SerRecieve = coms.FromArduino(SerSend)  #SerSend has to be a char or string!
 		print SerRecieve
 
 
-	print "Stopping the program"
+	print "Stopping the main program"
 	coms.stop()
