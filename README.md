@@ -6,5 +6,6 @@ The communication on arduino is done with simple Serial.read and Serial.write, w
 
 Py2ArdComs.py takes care of communicating with arduino, while PythonMain.py runs at normal speeds and gets Serial information thru the first one.
 
-I found out that the speed of arduino program is depended of speed of communications and therefore the speed of computer that Arduino is connected to. That's why: 
-TODO: make Arduino program run fully indipendet of the device that it's connected to.(Speed if processing)
+Both arduino and python send only long intigers. Chars and strings are going to cause error.
+
+
