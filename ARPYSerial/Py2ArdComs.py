@@ -1,13 +1,14 @@
 import serial, time
+import struct
 
 
 class Py2ArdComs:
 	Testing = 0
 	ThreadRun = 1
 	Count = 0
-	arduino = serial.Serial("COM3", 9600, timeout = 1)
+	arduino = serial.Serial("/dev/ttyACM0", 9600, timeout = 1)
 	FromArduinoData = 0
-	ToArduinoData = "ok"
+	ToArduinoData = 1
 
 	def __init__(self):
 		time.sleep(1) #give the connection a second to settle
@@ -33,7 +34,7 @@ class Py2ArdComs:
 			data = self.arduino.readline()[:-2] #the last bit gets rid of the new-line chars
 			if data:
 				self.FromArduinoData = data
-				self.arduino.write(self.ToArduinoData)
+				self.arduino.write(struct.pack('>B', self.ToArduinoData))
 		print("Exiting the coms protocol...")			
 
 if __name__ == '__main__':
